@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol: PROTECT THE PLANET | SDG 13</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js（升溫曲線圖用）。從 CDN 載入；若離線載入失敗，模擬器會自動退回長條圖。 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- Alert border -->
+<div class="alert-border-overlay" id="alertBorder"></div>
+
+<!-- Scanline -->
+<div class="scanline"></div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-logo">// PROTOCOL_13 // SDG_CLIMATE_ACTION</div>
+    <ul class="nav-links">
+        <li><a href="#mission-control">儀表板</a></li>
+        <li><a href="#climate-data">氣候數據</a></li>
+        <li><a href="#live-scanner">即時掃描</a></li>
+        <li><a href="#city-future">城市未來</a></li>
+        <li><a href="#action-plans">行動方案</a></li>
+        <li><a href="#learning-games">互動遊戲</a></li>
+        <li><a href="#alert-system">警報系統</a></li>
+        <li><a href="#system-logs">系統日誌</a></li>
+    </ul>
+</nav>
+
+<!-- ========== SECTION 1: HERO ========== -->
+<section id="hero">
+    <div class="hero-content">
+        <div class="hero-tag">SDG 13 // CLIMATE ACTION // 氣候行動</div>
+        <div class="hero-title">PROTECT<br>THE PLANET</div>
+        <div class="hero-subtitle">大氣修復協議 — 全球氣候行動終端系統</div>
+        <div class="hero-status">
+            <div class="status-item">
+                <div class="status-dot"></div>
+                <span>SYSTEM ONLINE</span>
+            </div>
+            <div class="status-item">
+                <div class="status-dot" style="background:var(--accent-yellow);animation-delay:.6s;"></div>
+                <span>MONITORING ACTIVE</span>
+            </div>
+            <div class="status-item">
+                <div class="status-dot" style="background:#ff6666;animation-delay:1.2s;"></div>
+                <span>CLIMATE CRITICAL</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-hint">
+        SCROLL TO EXPLORE
+        <span>↓</span>
+    </div>
+</section>
+
+<!-- ========== SECTION 2: MISSION CONTROL ========== -->
+<section id="mission-control">
+    <aside class="sidebar">
+        STATION_DATA_TRANSMISSION // AUTO_MODE_ENABLED // SECURE_LINE_V2.00
+    </aside>
+
+    <main class="main-content">
+        <div>
+            <div class="project-tag">SDG 13 // CLIMATE ACTION</div>
+            <h1 class="main-title">PROTECT<br>THE PLANET</h1>
+            <div class="description">
+                大氣循環修復協議已啟動。監控範圍：全球 (Sector-01)。<br><br>
+                當前優先任務：實現能源轉型、優化碳捕捉效率及工業廢料自動化回收。<br><br>
+                SDG 13 呼籲各國採取緊急行動，應對氣候變化及其影響。全球溫度已較工業化前上升約 <strong>1.1°C</strong>，若不立即行動，極端氣候事件將更加頻繁且劇烈。
+            </div>
+        </div>
+        <div class="corner-deco">
+            [ COORDINATES: 24.9680° N, 121.1960° E ]<br>
+            STATUS: MONITORING...<br>
+            VERSION: 2.0.0_FINAL_BUILD
+        </div>
+    </main>
+
+    <section class="panel">
+        <div class="data-card">
+            <div class="label">ATMOSPHERIC STABILITY</div>
+            <div class="data-value" id="stability-val">88.42%</div>
+        </div>
+        <div class="data-card">
+            <div class="label">CO₂ CONCENTRATION (PPM)</div>
+            <div class="data-value" id="co2-val" style="color:#ff6666;">421.8</div>
+        </div>
+        <div class="data-card">
+            <div class="label">CARBON_CAPTURE_RATE</div>
+            <div class="data-value" style="color:var(--accent-yellow);font-size:18px;">ACTIVE</div>
+        </div>
+        <div class="data-card" style="background:#1a1a1a;color:#fff;border:none;">
+            <div class="label" style="color:#555;border-color:#333;">SYSTEM_LOAD</div>
+            <div class="data-value" style="font-size:18px;">OPTIMAL</div>
+        </div>
+        <div style="flex-grow:1;"></div>
+        <button class="btn-action" id="recoveryBtn">
+            INITIATE RECOVERY<br>
+            <span style="font-size:10px;opacity:.7;">啟動修復程序</span>
+        </button>
+        <button class="btn-secondary"
+            onclick="document.getElementById('system-logs').scrollIntoView({behavior:'smooth'})">
+            SYSTEM LOGS<br>
+            <span style="font-size:10px;opacity:.7;">查看系統紀錄檔案</span>
+        </button>
+    </section>
+</section>
+
+<!-- ========== SECTION 3: CLIMATE DATA ========== -->
+<section id="climate-data">
+    <div class="section-tag">// REAL-TIME CLIMATE METRICS</div>
+    <div class="section-title">氣候數據<br>DASHBOARD</div>
+    <div class="section-subtitle">監控全球關鍵氣候指標 — 數據來源：聯合國 SDGs 官網 / NASA / NOAA</div>
+
+    <div class="data-grid">
+        <div class="metric-card">
+            <div class="metric-label">GLOBAL CO₂ CONCENTRATION</div>
+            <div class="metric-value">421</div>
+            <div class="metric-unit">ppm — 大氣 CO₂ 濃度</div>
+            <div class="metric-trend trend-bad">↑ 工業革命前為 280ppm，已增加 50%</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">TEMPERATURE ANOMALY</div>
+            <div class="metric-value">+1.1</div>
+            <div class="metric-unit">°C — 較工業化前升溫幅度</div>
+            <div class="metric-trend trend-bad">↑ 超過 1.5°C 將引發重大連鎖反應</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">ARCTIC SEA ICE LOSS</div>
+            <div class="metric-value">-13</div>
+            <div class="metric-unit">% / decade — 北極海冰縮減率</div>
+            <div class="metric-trend trend-bad">↑ 2023 年達歷史最低紀錄</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-label">SEA LEVEL RISE RATE</div>
+            <div class="metric-value">3.7</div>
+            <div class="metric-unit">mm / year — 海平面上升速率</div>
+            <div class="metric-trend trend-bad">↑ 較 1993 年速率加快一倍</div>
+        </div>
+    </div>
+
+    <div class="knowledge-block">
+        <div class="section-tag">// 你知道嗎？</div>
+        <p>
+            根據聯合國氣候變化框架公約（UNFCCC）的資料，若全球升溫超過
+            <strong style="color:var(--accent-yellow);">1.5°C</strong>，
+            全球將有超過 <strong style="color:var(--accent-yellow);">1 億人</strong> 面臨極端貧困風險，
+            <strong style="color:var(--accent-yellow);">70–90%</strong> 的珊瑚礁將消失，
+            超過 <strong style="color:var(--accent-yellow);">1 億人</strong> 可能因海平面上升被迫遷移。
+            SDG 13 的核心目標：將全球升溫控制在
+            <strong style="color:var(--accent-yellow);">1.5°C 以內</strong>。
+        </p>
+    </div>
+</section>
+
+<!-- ========== SECTION 3.5: LIVE SCANNER ========== -->
+<section id="live-scanner">
+    <div class="scanner-wrap">
+        <div class="section-tag">// REAL-TIME ATMOSPHERIC SCANNER · 即時資料</div>
+        <div class="section-title">即時氣候掃描<br>LIVE CLIMATE SCANNER</div>
+        <div class="section-subtitle">輸入任意城市，連線真實氣象站，掃描當前氣溫與空氣品質 — 數據來源：OpenWeatherMap API</div>
+
+        <div class="demo-banner" id="demoBanner">
+            ⚠ DEMO MODE // 示範模式：目前顯示為模擬資料。在 js 區塊填入免費 OpenWeatherMap API Key 即可啟用真實即時數據。
+        </div>
+
+        <div class="scan-input-row">
+            <input type="text" id="scanInput" class="scan-input" placeholder="輸入城市名稱（例如：Taipei, Tokyo, London）..." autocomplete="off">
+            <button class="scan-btn" id="scanBtn">▸ SCAN 掃描</button>
+        </div>
+
+        <div class="scan-quick">
+            <span class="scan-chip" data-city="Taipei">台北</span>
+            <span class="scan-chip" data-city="Tokyo">東京</span>
+            <span class="scan-chip" data-city="London">倫敦</span>
+            <span class="scan-chip" data-city="New York">紐約</span>
+            <span class="scan-chip" data-city="Beijing">北京</span>
+            <span class="scan-chip" data-city="Sydney">雪梨</span>
+            <span class="scan-chip" data-city="Delhi">新德里</span>
+        </div>
+
+        <div class="scan-result" id="scanResult">
+            <div class="scan-loading" id="scanLoading">▸ 等待掃描指令... 點選上方城市或輸入名稱開始</div>
+            <div class="scan-error" id="scanError" style="display:none;"></div>
+            <div class="scan-data" id="scanData">
+                <div class="scan-data-head">
+                    <div>
+                        <div class="scan-city" id="scanCity">—</div>
+                        <div class="scan-metric-sub" id="scanDesc">—</div>
+                    </div>
+                    <div class="scan-coord" id="scanCoord">—</div>
+                </div>
+                <div class="scan-metrics">
+                    <div class="scan-metric">
+                        <div class="scan-metric-label">TEMPERATURE 氣溫</div>
+                        <div class="scan-metric-value" id="scanTemp">—</div>
+                        <div class="scan-metric-sub" id="scanFeels">—</div>
+                    </div>
+                    <div class="scan-metric">
+                        <div class="scan-metric-label">HUMIDITY 濕度</div>
+                        <div class="scan-metric-value" id="scanHumid">—</div>
+                        <div class="scan-metric-sub">相對濕度</div>
+                    </div>
+                    <div class="scan-metric">
+                        <div class="scan-metric-label">WIND 風速</div>
+                        <div class="scan-metric-value" id="scanWind">—</div>
+                        <div class="scan-metric-sub">m/s</div>
+                    </div>
+                    <div class="scan-metric">
+                        <div class="scan-metric-label">AIR QUALITY 空氣品質</div>
+                        <div class="scan-metric-value" id="scanAqi">—</div>
+                        <div class="scan-metric-sub" id="scanAqiText">AQI 指數</div>
+                    </div>
+                </div>
+                <div class="scan-context" id="scanContext">—</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 3.6: YOUR CITY 2050 ========== -->
+<section id="city-future">
+    <div class="scanner-wrap">
+        <div class="section-tag">// PERSONAL CLIMATE IMPACT · 在地化衝擊</div>
+        <div class="section-title">你的城市，2050<br>YOUR CITY IN 2050</div>
+        <div class="section-subtitle">輸入你居住的城市，看見氣候變遷如何改變「你家」的未來 — 這跟你有關</div>
+
+        <div class="scan-input-row">
+            <input type="text" id="cityInput" class="scan-input" placeholder="輸入你的城市（例如：Taipei, Kaohsiung, Tokyo）..." autocomplete="off">
+            <button class="scan-btn" id="cityBtn">▸ 預測未來</button>
+        </div>
+        <div class="scan-quick">
+            <span class="city-chip" data-city="Taipei">台北</span>
+            <span class="city-chip" data-city="Kaohsiung">高雄</span>
+            <span class="city-chip" data-city="Tokyo">東京</span>
+            <span class="city-chip" data-city="London">倫敦</span>
+            <span class="city-chip" data-city="Bangkok">曼谷</span>
+            <span class="city-chip" data-city="Sydney">雪梨</span>
+        </div>
+
+        <div class="scan-result" id="cityResult">
+            <div class="scan-loading" id="cityLoading">▸ 輸入你的城市，預測你家 2050 年的氣候未來...</div>
+            <div class="scan-error" id="cityError" style="display:none;"></div>
+            <div class="scan-data" id="cityData">
+                <div class="scan-data-head">
+                    <div>
+                        <div class="scan-city" id="cityName">—</div>
+                        <div class="scan-metric-sub">2040–2050 推估 vs 1995–2014 基準</div>
+                    </div>
+                    <div class="scan-coord" id="cityCoord">—</div>
+                </div>
+
+                <!-- 三張衝擊數字卡 -->
+                <div class="scan-metrics">
+                    <div class="scan-metric">
+                        <div class="scan-metric-label">年均溫變化 ANNUAL TEMP</div>
+                        <div class="scan-metric-value" id="cityTempDelta">—</div>
+                        <div class="scan-metric-sub">比 20 世紀末基準</div>
+                    </div>
+                    <div class="scan-metric">
+                        <div class="scan-metric-label">夏季 >33°C 高溫日 / 年</div>
+                        <div class="scan-metric-value" id="cityHotDays">—</div>
+                        <div class="scan-metric-sub" id="cityHotSub">—</div>
+                    </div>
+                    <div class="scan-metric">
+                        <div class="scan-metric-label">豪雨日 >50mm / 年</div>
+                        <div class="scan-metric-value" id="cityRainDays">—</div>
+                        <div class="scan-metric-sub" id="cityRainSub">—</div>
+                    </div>
+                </div>
+
+                <!-- 海平面淹水地圖（Climate Central） -->
+                <div class="city-map-head">
+                    <div class="city-map-title">🌊 海平面上升淹水範圍（<span style="color:#4a90d9;">藍色</span>＝被海水淹沒區域）</div>
+                    <div class="city-year-toggle">
+                        <button class="year-btn" data-level="0" data-year="現況">現況（今天）</button>
+                        <button class="year-btn" data-level="1" data-year="2050">2050 · ~1m</button>
+                        <button class="year-btn active" data-level="2" data-year="2100">2100 · ~2m</button>
+                        <button class="year-btn" data-level="3" data-year="2100+暴潮">+暴潮 ~3m</button>
+                    </div>
+                </div>
+                <div class="city-map-wrap">
+                    <div class="city-map-loading" id="cityMapLoading">▸ 載入淹水地圖中...</div>
+                    <iframe id="cityMap" title="Climate Central 海平面淹水地圖" loading="lazy"></iframe>
+                </div>
+
+                <div class="scan-context" id="cityContext">—</div>
+
+                <!-- 可證明性：資料來源標註 -->
+                <div class="source-note">
+                    資料來源｜溫度・降雨：Open-Meteo Climate API（CMIP6 降尺度推估，模式 MRI_AGCM3_2_S）<br>
+                    淹水地圖：Climate Central Coastal Risk（Kulp &amp; Strauss 2019, Nature Comms）｜水位依 IPCC AR6 海平面推估<br>
+                    註：水位為「相對當地高潮線」之海平面上升＋潮汐/暴潮綜合高度；藍色為可能淹沒區。內陸高地不會淹屬正常結果，海岸/河口三角洲城市（如曼谷、台南、上海）效果最明顯。
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 4: ACTION PLANS ========== -->
+<section id="action-plans">
+    <div class="section-tag">// SDG 13 ACTION TARGETS</div>
+    <div class="section-title" style="color:var(--text-main);">行動方案<br>ACTION PLANS</div>
+    <div class="section-subtitle">點擊卡片查看 SDG 13 具體目標與行動建議</div>
+
+    <div class="cards-grid">
+        <div class="action-card" onclick="openModal('m1')">
+            <div class="card-number">13.1</div>
+            <div class="card-title">強化氣候韌性與適應力</div>
+            <div class="card-desc">加強各國應對氣候相關危害和自然災害的抵禦能力和適應能力。</div>
+            <div class="card-label">RESILIENCE</div>
+        </div>
+        <div class="action-card" onclick="openModal('m2')">
+            <div class="card-number">13.2</div>
+            <div class="card-title">整合氣候變化政策</div>
+            <div class="card-desc">將氣候變化因應措施納入國家政策、戰略和規劃中。</div>
+            <div class="card-label">POLICY</div>
+        </div>
+        <div class="action-card" onclick="openModal('m3')">
+            <div class="card-number">13.3</div>
+            <div class="card-title">氣候教育與意識提升</div>
+            <div class="card-desc">改善氣候變化減緩、適應、影響減少及早期預警方面的教育與意識。</div>
+            <div class="card-label">EDUCATION</div>
+        </div>
+        <div class="action-card" onclick="openModal('m4')">
+            <div class="card-number">13.A</div>
+            <div class="card-title">綠色氣候基金</div>
+            <div class="card-desc">已開發國家承諾每年聯合籌集 1,000 億美元，協助開發中國家應對氣候變化。</div>
+            <div class="card-label">FINANCE</div>
+        </div>
+        <div class="action-card" onclick="openModal('m5')">
+            <div class="card-number">13.B</div>
+            <div class="card-title">提升開發中國家能力</div>
+            <div class="card-desc">促進最脆弱國家的氣候變化相關規劃和管理機制。</div>
+            <div class="card-label">CAPACITY</div>
+        </div>
+        <div class="action-card" onclick="openModal('m6')">
+            <div class="card-number">Paris</div>
+            <div class="card-title">巴黎協定目標</div>
+            <div class="card-desc">195 個國家承諾將全球升溫控制在工業化前水平的 2°C 以下，並努力限制在 1.5°C。</div>
+            <div class="card-label">GLOBAL AGREEMENT</div>
+        </div>
+    </div>
+</section>
+
+<!-- Modals -->
+<div class="modal-overlay" id="m1" onclick="if(event.target===this)closeModal('m1')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m1')">✕</button>
+        <div class="modal-tag">SDG 13.1 // RESILIENCE</div>
+        <div class="modal-title">強化氣候韌性與適應力</div>
+        <div class="modal-body">目標 13.1 要求各國加強對氣候相關危害和自然災害的抵禦能力。具體行動包括：</div>
+        <ul class="modal-list">
+            <li>建立早期預警系統，及時通知沿海和脆弱地區居民</li>
+            <li>制定完整的防災計畫，特別針對洪水、乾旱和極端天氣</li>
+            <li>加強基礎設施的氣候韌性設計標準</li>
+            <li>投資自然解決方案，如紅樹林和濕地保護</li>
+        </ul>
+        <div class="modal-status">STATUS: 全球已有 120+ 個國家建立國家適應計畫（NAPs）</div>
+    </div>
+</div>
+<div class="modal-overlay" id="m2" onclick="if(event.target===this)closeModal('m2')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m2')">✕</button>
+        <div class="modal-tag">SDG 13.2 // POLICY</div>
+        <div class="modal-title">整合氣候變化政策</div>
+        <div class="modal-body">各國必須將氣候行動整合至核心政策框架中，確保政策一致性：</div>
+        <ul class="modal-list">
+            <li>設定具法律約束力的碳中和時間表（台灣 2050 淨零目標）</li>
+            <li>推動碳交易市場與碳稅機制</li>
+            <li>將氣候風險納入金融監管體系</li>
+            <li>要求企業揭露氣候相關財務風險（TCFD）</li>
+        </ul>
+        <div class="modal-status">STATUS: 台灣已通過《氣候變遷因應法》，設定 2050 淨零排放目標</div>
+    </div>
+</div>
+<div class="modal-overlay" id="m3" onclick="if(event.target===this)closeModal('m3')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m3')">✕</button>
+        <div class="modal-tag">SDG 13.3 // EDUCATION</div>
+        <div class="modal-title">氣候教育與意識提升</div>
+        <div class="modal-body">教育是應對氣候危機最有力的工具之一，本網站即是此精神的實踐：</div>
+        <ul class="modal-list">
+            <li>在學校課程中融入氣候教育內容</li>
+            <li>利用數位工具與互動設計提升氣候意識（如本網站）</li>
+            <li>培訓社區領袖成為氣候行動倡導者</li>
+            <li>利用媒體和社群平台擴大氣候行動訊息</li>
+        </ul>
+        <div class="modal-status">STATUS: 本專題即為 SDG 13.3 的具體實踐 — 透過科技讓氣候議題更具吸引力</div>
+    </div>
+</div>
+<div class="modal-overlay" id="m4" onclick="if(event.target===this)closeModal('m4')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m4')">✕</button>
+        <div class="modal-tag">SDG 13.A // FINANCE</div>
+        <div class="modal-title">綠色氣候基金</div>
+        <div class="modal-body">氣候融資是落實 SDG 13 的關鍵，已開發國家須承擔歷史排放責任：</div>
+        <ul class="modal-list">
+            <li>每年 1,000 億美元目標 — 資金用於最脆弱國家的氣候適應</li>
+            <li>綠色氣候基金（GCF）已核准超過 400 個氣候項目</li>
+            <li>推動私部門投資轉向低碳清潔能源</li>
+            <li>2022 年全球氣候融資達 8,910 億美元</li>
+        </ul>
+        <div class="modal-status">STATUS: 氣候融資規模仍不足實際需求的 1/6，需大幅加速</div>
+    </div>
+</div>
+<div class="modal-overlay" id="m5" onclick="if(event.target===this)closeModal('m5')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m5')">✕</button>
+        <div class="modal-tag">SDG 13.B // CAPACITY</div>
+        <div class="modal-title">提升開發中國家能力</div>
+        <div class="modal-body">最脆弱的國家往往排放最少卻受影響最大，必須優先獲得支援：</div>
+        <ul class="modal-list">
+            <li>最低度開發國家（LDCs）和小島嶼國家（SIDS）優先獲得技術支援</li>
+            <li>轉移清潔能源技術，協助跳過化石燃料依賴階段</li>
+            <li>加強氣象預報能力，改善早期預警系統</li>
+            <li>建立南南合作機制，分享氣候適應最佳實踐</li>
+        </ul>
+        <div class="modal-status">STATUS: 超過 48 個最低度開發國家已提交國家自主貢獻（NDCs）</div>
+    </div>
+</div>
+<div class="modal-overlay" id="m6" onclick="if(event.target===this)closeModal('m6')">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('m6')">✕</button>
+        <div class="modal-tag">PARIS AGREEMENT // GLOBAL COMMITMENT</div>
+        <div class="modal-title">巴黎協定</div>
+        <div class="modal-body">2015 年 12 月通過的巴黎協定是人類史上最重要的氣候協議：</div>
+        <ul class="modal-list">
+            <li>195 個締約方承諾將升溫控制在 2°C 以下</li>
+            <li>努力將升溫限制在工業化前水準 1.5°C 以內</li>
+            <li>每個國家須定期提交和更新「國家自主貢獻（NDC）」</li>
+            <li>每 5 年進行一次全球盤點，檢視進展</li>
+        </ul>
+        <div class="modal-status">STATUS: 目前各國 NDCs 若全部實現，預計升溫約 2.5°C — 仍須大幅加強行動</div>
+    </div>
+</div>
+
+<!-- ========== SECTION 4.5: LEARNING GAMES ========== -->
+<section id="learning-games">
+    <div class="games-wrap">
+        <div class="section-tag">// INTERACTIVE LEARNING MODULE</div>
+        <div class="section-title">互動教育遊戲<br>LEARN BY PLAYING</div>
+        <div class="section-subtitle">透過遊戲認識氣候科學與 SDG 13 — 邊玩邊學</div>
+
+        <div class="games-grid">
+            <!-- GAME 1: QUIZ -->
+            <div class="game-box">
+                <div class="game-header">
+                    <span class="game-icon">🧠</span>
+                    <span class="game-title">氣候知識檢測</span>
+                </div>
+                <div class="game-sub">CLIMATE QUIZ // 測試你的氣候素養</div>
+
+                <div id="quizPlay">
+                    <div class="quiz-progress">QUESTION <b id="qNum">1</b> / <span id="qTotal">6</span> &nbsp;·&nbsp; SCORE: <b id="qScore">0</b></div>
+                    <div class="quiz-question" id="qText">載入中...</div>
+                    <div class="quiz-options" id="qOptions"></div>
+                    <div class="quiz-explain" id="qExplain"></div>
+                    <button class="quiz-next" id="qNext" onclick="nextQuestion()">下一題 →</button>
+                </div>
+
+                <div id="quizResult" class="quiz-result" style="display:none;">
+                    <div class="quiz-progress">DIAGNOSTIC COMPLETE</div>
+                    <div class="quiz-score"><span id="finalScore">0</span><span style="font-size:24px;color:#444;">/6</span></div>
+                    <div class="quiz-rating" id="finalRating">—</div>
+                    <p id="finalMsg">—</p>
+                    <button class="quiz-restart" onclick="startQuiz()">↻ 再測一次</button>
+                </div>
+            </div>
+
+            <!-- GAME 2: NET ZERO SIMULATOR -->
+            <div class="game-box">
+                <div class="game-header">
+                    <span class="game-icon">🌍</span>
+                    <span class="game-title">淨零排放模擬器</span>
+                </div>
+                <div class="game-sub">NET ZERO SIMULATOR // 你能拯救地球嗎？</div>
+
+                <div class="sim-gauge-wrap">
+                    <div class="sim-gauge-label">PROJECTED WARMING 2025–2100 // 升溫路徑預測</div>
+                    <div class="sim-temp" id="simTemp">+2.7<span class="sim-temp-unit">°C</span></div>
+                    <div class="sim-gauge-sub">2100 年預測升溫（相對工業化前）</div>
+                </div>
+
+                <!-- 升溫曲線圖（Chart.js）：依使用者選擇，在 IPCC SSP 情境間內插 -->
+                <div class="sim-chart-wrap" id="simChartWrap">
+                    <canvas id="simChart"></canvas>
+                </div>
+
+                <!-- 退路：Chart.js 載入失敗（離線）時，自動改顯示長條圖 -->
+                <div id="simFallback" style="display:none;">
+                    <div class="sim-bar-track">
+                        <div class="sim-bar-fill" id="simBar"></div>
+                        <div class="sim-target-line" title="1.5°C 目標"></div>
+                        <div class="sim-target-flag">▼ 1.5°C 目標</div>
+                    </div>
+                    <div class="sim-bar-legend">
+                        <span>0°C</span>
+                        <span>4°C+</span>
+                    </div>
+                </div>
+
+                <div style="font-size:10px;color:#555;font-family:'Courier New',monospace;line-height:1.6;margin-bottom:14px;">
+                    情境端點來源：IPCC AR6 WG1 SPM Table SPM.1｜曲線中間點為內插示意，非官方逐年值
+                </div>
+
+                <div class="sim-status" id="simStatus">
+                    ⚠ 目前升溫 +2.7°C。點擊下方選項試試看 — 但小心，有些行為反而會讓地球更熱！
+                </div>
+
+                <div class="sim-actions" id="simActions"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 淨零模擬器 — 危險升溫警告彈窗 -->
+<div class="modal-overlay" id="simDanger" onclick="if(event.target===this)closeModal('simDanger')">
+    <div class="modal-box modal-danger">
+        <button class="modal-close" onclick="closeModal('simDanger')">✕</button>
+        <div class="modal-tag">⚠ WARNING // 高排放行為警告</div>
+        <div class="modal-title">這是錯誤的選擇！</div>
+        <div class="sim-danger-name" id="simDangerName">擴建燃煤電廠</div>
+        <div class="modal-body">
+            你剛剛選擇的是<strong style="color:#ff7777;">「高排放行為」</strong> — 它會排放大量溫室氣體，<strong style="color:#ff7777;">加速全球升溫</strong>，讓地球離 1.5°C 目標越來越遠。如果人類持續這類行為，將造成：
+        </div>
+        <ul class="modal-list">
+            <li>🌊 海平面大幅上升，沿海城市與島國被淹沒</li>
+            <li>🔥 致命熱浪、野火、乾旱成為常態</li>
+            <li>🐠 超過 99% 珊瑚礁死亡，生態系崩潰</li>
+            <li>🌾 全球糧食與水資源嚴重短缺</li>
+        </ul>
+        <div class="modal-body" style="margin-top:16px;">
+            <strong style="color:var(--accent-green);">✓ 正確做法：</strong>取消這個行為，改為選擇<strong style="color:var(--accent-green);">再生能源、電動運輸、造林、碳捕捉</strong>等減碳行動，才能把升溫壓回 1.5°C 目標以內。
+        </div>
+        <div class="modal-danger-actions">
+            <button class="btn-fix" onclick="cancelBadAction()">✓ 取消這個行為</button>
+            <button class="btn-dismiss" onclick="closeModal('simDanger')">我堅持，繼續</button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== SECTION 5: ALERT SYSTEM ========== -->
+<section id="alert-system">
+    <div class="section-tag">// CRITICAL ALERT SYSTEM</div>
+    <div class="section-title">臨界警報<br>ALERT SYSTEM</div>
+    <div class="section-subtitle">當氣候指標超出安全範圍，系統將進入緊急模式</div>
+
+    <div class="alert-grid">
+        <div class="alert-status-panel">
+            <div class="alert-panel-label">CURRENT STATUS</div>
+            <div class="alert-level" id="alertLevel">NORMAL</div>
+            <div class="alert-subtext" id="alertSubtext">大氣穩定度正常 — 所有系統運作中</div>
+            <div class="alert-desc" id="alertDesc">
+                目前監控系統顯示全球氣候指標尚在可接受範圍內，但大氣 CO₂ 濃度持續上升，需持續關注。科學家警告，若在 2030 年前不將排放量減少 45%，將無法實現 1.5°C 目標。
+            </div>
+        </div>
+        <div class="alert-controls">
+            <button class="btn-danger" onclick="triggerAlert()">
+                ⚠ SIMULATE CLIMATE ALERT<br>
+                <span style="font-size:11px;opacity:.8;font-weight:normal;">模擬臨界警報狀態</span>
+            </button>
+            <button class="btn-safe" id="resetBtn" style="display:none;" onclick="resetAlert()">
+                ✓ RESTORE NORMAL MODE<br>
+                <span style="font-size:11px;opacity:.8;">恢復正常模式</span>
+            </button>
+            <div class="threshold-box">
+                <div class="th-label">ALERT THRESHOLDS</div>
+                CO₂ &gt; 450 ppm &nbsp;→ ⚠ WARNING<br>
+                TEMP &gt; +1.5°C &nbsp;→ ⚠ CRITICAL<br>
+                ICE LOSS &gt; 30% → ⚠ EMERGENCY
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SECTION 6: SYSTEM LOGS ========== -->
+<section id="system-logs">
+    <div class="section-tag">// ENVIRONMENTAL EVENT LOG</div>
+    <div class="section-title">系統日誌<br>SYSTEM LOGS</div>
+    <div class="section-subtitle">全球重大氣候事件歷史紀錄</div>
+
+    <div class="terminal" id="logTerminal">
+        <p class="log-line"><span class="log-time">[2024-11-22]</span> <span class="log-warn">WARN</span>  <span class="log-msg">全球 CO₂ 濃度創歷史新高，超過 422 ppm</span></p>
+        <p class="log-line"><span class="log-time">[2024-09-10]</span> <span class="log-alert">ALERT</span> <span class="log-msg">北極海冰面積達 2024 年最低點，較 1980 年代平均低 38%</span></p>
+        <p class="log-line"><span class="log-time">[2024-07-22]</span> <span class="log-alert">ALERT</span> <span class="log-msg">全球平均氣溫連續 13 個月刷新月度最高紀錄</span></p>
+        <p class="log-line"><span class="log-time">[2024-06-15]</span> <span class="log-warn">WARN</span>  <span class="log-msg">颱風季提早，西北太平洋已出現超級颱風</span></p>
+        <p class="log-line"><span class="log-time">[2023-12-01]</span> <span class="log-info">INFO</span>  <span class="log-msg">COP28 杜拜峰會通過歷史性協議，首次明確提及化石燃料轉型</span></p>
+        <p class="log-line"><span class="log-time">[2023-09-04]</span> <span class="log-alert">ALERT</span> <span class="log-msg">南極海冰面積刷新有史以來最小記錄</span></p>
+        <p class="log-line"><span class="log-time">[2023-07-06]</span> <span class="log-alert">ALERT</span> <span class="log-msg">全球平均氣溫首次單日超過工業化前水準 1.5°C</span></p>
+        <p class="log-line"><span class="log-time">[2023-04-05]</span> <span class="log-warn">WARN</span>  <span class="log-msg">格陵蘭冰蓋融化速度較 2000 年代加快七倍</span></p>
+        <p class="log-line"><span class="log-time">[2022-08-30]</span> <span class="log-alert">ALERT</span> <span class="log-msg">巴基斯坦洪災：超過 1/3 國土被淹沒，3,300 萬人受影響</span></p>
+        <p class="log-line"><span class="log-time">[2021-11-13]</span> <span class="log-info">INFO</span>  <span class="log-msg">COP26 格拉斯哥協議：195 國同意加強 2030 年減排目標</span></p>
+        <p class="log-line"><span class="log-time">[2021-08-09]</span> <span class="log-alert">ALERT</span> <span class="log-msg">IPCC 第六次評估報告：確認人類活動是全球暖化「明確原因」</span></p>
+        <p class="log-line"><span class="log-time">[2015-12-12]</span> <span class="log-info">INFO</span>  <span class="log-msg">巴黎協定正式通過，195 個國家承諾應對氣候變化</span></p>
+        <p class="log-line" style="color:#222;">───────────────────────────────────────────────────────────</p>
+        <p class="log-line"><span class="log-time">[SYSTEM]</span>      <span class="log-info">INFO</span>  <span class="log-msg">Protocol 13 v2.0 initialized. Global monitoring active.</span></p>
+        <p class="log-line" id="cursor" style="color:#333;">_</p>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <div>
+        <div class="footer-brand">// PROTOCOL_13 // SDG_CLIMATE_ACTION</div>
+        <div style="margin-top:8px;">數據來源：聯合國 SDGs 官網 / NASA / NOAA / IPCC</div>
+    </div>
+    <div style="text-align:right;">
+        <div>網頁程式設計期末專題</div>
+        <div style="margin-top:4px;color:#222;">VERSION 2.0.0 // FINAL_BUILD</div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
